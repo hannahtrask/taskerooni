@@ -1,10 +1,27 @@
-export type TaskStatus = 'created' | 'in-progress' | 'complete';
+export type TaskPriority = 'low' | 'medium' | 'high';
 
 export interface Task {
-  id: string;
+  _id: string;
   title: string;
   description?: string;
-  status: TaskStatus;
-  createdAt: Date;
-  updatedAt: Date;
+  completed: boolean;
+  priority: TaskPriority;
+  dueDate?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CreateTaskInput {
+  title: string;
+  description?: string;
+  priority?: TaskPriority;
+  dueDate?: string;
+}
+
+export interface UpdateTaskInput {
+  title?: string;
+  description?: string;
+  completed?: boolean;
+  priority?: TaskPriority;
+  dueDate?: string;
 }
